@@ -22,7 +22,10 @@
       "supportsTablet": true,
       "icon": "./src/assets/shared/icon.png",
       "bundleIdentifier": "com.cashea.app.frontend",
-      "buildNumber": "1"
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "versionCode": 1,

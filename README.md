@@ -103,3 +103,9 @@ I focused on clean componentization and reusable UI elements to keep the code or
 Styling was done with NativeWind (TailwindCSS for React Native) for speed, consistency, and easier dark/light mode handling.
 
 I prioritized simplicity, smooth animations, and a clear user flow over adding extra features.
+
+## 📥 Downloads
+
+- [Android (APK) — Download here](https://expo.dev/artifacts/eas/hoNXF2HrQnGYyaiNUQesQW.apk)
+
+- [iOS (Simulator) — Download here](https://expo.dev/artifacts/eas/61XotYP2fyK1F1FAFNnWPv.tar.gz) (Works on macOS with Xcode Simulator. Extract the .tar.gz file and drag the .app inside the Simulator window)
