@@ -8,8 +8,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "type-check": "tsc --noEmit",
-    "server": "json-server --watch db.json --port 3001"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@expo-google-fonts/dm-sans": "^0.2.3",
