@@ -8,7 +8,10 @@ import {
   Pressable,
   Animated,
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import BtnPrimary from "@/components/ui/buttons/btn-primary/BtnPrimary";
 import { useSlideUp } from "@/hooks/useSlideUp";
 import { Priority } from "../store";
@@ -37,6 +40,7 @@ export const AddTaskModal = ({
   const { translateY, slideDown } = useSlideUp(showModal);
   const inputRef = useRef<TextInput>(null);
   const [error, setError] = useState(false);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     if (!showModal) return;
@@ -90,50 +94,57 @@ export const AddTaskModal = ({
         accessibilityLabel="Close modal"
       />
 
-      <Animated.View
-        style={{ transform: [{ translateY }] }}
-        className="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl px-6 pt-4 pb-8 shadow-lg"
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        keyboardVerticalOffset={insets.bottom}
+        style={{ position: "absolute", left: 0, right: 0, bottom: 0 }}
       >
-        <View className="flex-row items-center justify-between mb-2">
-          <Text className="text-gray-700 text-lg font-DMsansBold">
-            New task
+        <Animated.View
+          style={{ transform: [{ translateY }] }}
+          className="bg-white rounded-t-3xl px-6 pt-4 pb-8 shadow-lg"
+        >
+          <View className="flex-row items-center justify-between mb-2">
+            <Text className="text-gray-700 text-lg font-DMsansBold">
+              New task
+            </Text>
+
+            <TouchableOpacity
+              accessibilityRole="button"
+              accessibilityLabel="Close"
+              onPress={closeWithCleanup}
+              className="w-8 h-8 items-center justify-center"
+              testID="close-modal"
+            >
+              <Text className="text-gray-500 text-xl">×</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TextInput
+            ref={inputRef}
+            value={text}
+            onChangeText={onChangeText}
+            placeholder="Add a task…"
+            placeholderTextColor={error ? "#DF6E57" : "#6B7280"}
+            className={`mt-2 bg-white rounded-2xl px-4 py-3 text-gray-700 border ${
+              error ? "border-pink" : "border-border"
+            }`}
+            returnKeyType="done"
+            onSubmitEditing={onSubmit}
+            blurOnSubmit={false}
+            accessibilityLabel="Task text input"
+          />
+
+          <Text className="text-right text-gray-400 text-xs mt-1">
+            {remaining}
           </Text>
 
-          <TouchableOpacity
-            accessibilityRole="button"
-            accessibilityLabel="Close"
-            onPress={closeWithCleanup}
-            className="w-8 h-8 items-center justify-center"
-            testID="close-modal"
-          >
-            <Text className="text-gray-500 text-xl">×</Text>
-          </TouchableOpacity>
-        </View>
+          <PrioritySelector value={priority} onChange={setPriority} />
 
-        <TextInput
-          ref={inputRef}
-          value={text}
-          onChangeText={onChangeText}
-          placeholder="Add a task…"
-          placeholderTextColor={error ? "#DF6E57" : "#6B7280"}
-          className={`mt-2 bg-white rounded-2xl px-4 py-3 text-gray-700 border ${
-            error ? "border-pink" : "border-border"
-          }`}
-          returnKeyType="done"
-          onSubmitEditing={onSubmit}
-          accessibilityLabel="Task text input"
-        />
-
-        <Text className="text-right text-gray-400 text-xs mt-1">
-          {remaining}
-        </Text>
-
-        <PrioritySelector value={priority} onChange={setPriority} />
-
-        <View className="mt-4">
-          <BtnPrimary onPress={onSubmit}>Add</BtnPrimary>
-        </View>
-      </Animated.View>
+          <View className="mt-4">
+            <BtnPrimary onPress={onSubmit}>Add</BtnPrimary>
+          </View>
+        </Animated.View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 };
