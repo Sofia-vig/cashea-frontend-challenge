@@ -11,7 +11,7 @@ export default function Landing() {
 
   return (
     <SafeAreaView className="flex-1 bg-beige">
-      <View className="flex-1 items-center justify-center px-3">
+      <View className="flex-1 items-center justify-center">
         <View className="mb-2">
           <HeadingOne>Tasky</HeadingOne>
         </View>
@@ -20,8 +20,10 @@ export default function Landing() {
           Organize your day at your own pace.
         </ParagraphRegular>
 
-        <View className="mt-6 w-full">
-          <BtnPrimary onPress={handleStart}>Get started</BtnPrimary>
+        <View className="px-4">
+          <View className="mt-6 w-full">
+            <BtnPrimary onPress={handleStart}>Get started</BtnPrimary>
+          </View>
         </View>
       </View>
     </SafeAreaView>
