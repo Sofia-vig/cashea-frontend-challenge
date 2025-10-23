@@ -106,6 +106,6 @@ I prioritized simplicity, smooth animations, and a clear user flow over adding e
 
 ## 📥 Downloads
 
-- [Android (APK) — Download here](https://expo.dev/artifacts/eas/hoNXF2HrQnGYyaiNUQesQW.apk)
+- [Android (APK) — Download here](https://expo.dev/artifacts/eas/pL6hyfsBRNFLmnskF9dZFx.apk)
 
-- [iOS (Simulator) — Download here](https://expo.dev/artifacts/eas/61XotYP2fyK1F1FAFNnWPv.tar.gz) (Works on macOS with Xcode Simulator. Extract the .tar.gz file and drag the .app inside the Simulator window)
+- [iOS (Simulator) — Download here](https://expo.dev/artifacts/eas/w2cFJxpzChg4jPGXq5heCE.tar.gz) (Works on macOS with Xcode Simulator. Extract the .tar.gz file and drag the .app inside the Simulator window)
