@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "Tasky",
+    "slug": "tasky",
+    "scheme": "tasky",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/shared/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#F7EFE7"
+    },
+    "updates": {
+      "requestHeaders": {
+        "expo-channel-name": "preview"
+      },
+      "url": ""
+    },
+    "icon": "./src/assets/shared/icon.png",
+    "ios": {
+      "supportsTablet": true,
+      "icon": "./src/assets/shared/icon.png",
+      "bundleIdentifier": "com.cashea.app.frontend",
+      "buildNumber": "1"
+    },
+    "android": {
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/shared/adaptive-icon.png",
+        "backgroundColor": "#A5B4FC"
+      },
+      "package": "com.cashea.app.frontend"
+    },
+    "web": {},
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "31c4a5e7-251f-4fa7-8f4a-df0682619c5e"
+      }
+    },
+    "owner": "cashea-challenge",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
+  }
+}
